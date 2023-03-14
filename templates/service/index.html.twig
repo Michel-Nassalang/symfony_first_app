@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Service index{% endblock %}
+
+{% block body %}
+    <h1>Service index</h1>
+
+    <table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+
+                <th>Statut</th>
+                <th>DateOuverture</th>
+                <th>DateFermeture</th>
+                <th>MontantInitial</th>
+                <th>MontantFinal</th>
+                <th>UserCreate</th>
+                <th>UserUpdate</th>
+                <th>UserDelete</th>
+                <th>DateCreate</th>
+                <th>DateUpdate</th>
+                <th>DateDelete</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for service in services %}
+            <tr>
+
+                <td>{{ service.statut ? 'Yes' : 'No' }}</td>
+                <td>{{ service.dateOuverture ? service.dateOuverture|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ service.dateFermeture ? service.dateFermeture|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ service.montantInitial }}</td>
+                <td>{{ service.montantFinal }}</td>
+                <td>{{ type_depense.userCreate }}</td>
+                <td>{{ type_depense.userUpdate }}</td>
+                <td>{{ type_depense.userDelete }}</td>
+                <td>{{ type_depense.dateCreate ? type_depense.dateCreate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ type_depense.dateUpdate ? type_depense.dateUpdate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ type_depense.dateDelete ? type_depense.dateDelete|date('Y-m-d H:i:s') : '' }}</td>
+                
+                <td>
+                    <a href="{{ path('app_service_show', {'id': service.id}) }}">show</a>
+                    <a href="{{ path('app_service_edit', {'id': service.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_service_new') }}">Create new</a>
+{% endblock %}

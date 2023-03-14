@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LigneCommande{% endblock %}
+
+{% block body %}
+    <h1>LigneCommande</h1>
+
+    <table id="example" class="display" style="width:100%">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ ligne_commande.id }}</td>
+            </tr>
+            <tr>
+                <th>StatutLC</th>
+                <td>{{ ligne_commande.statutLC }}</td>
+            </tr>
+            <tr>
+                <th>UserCreateLC</th>
+                <td>{{ ligne_commande.UserCreateLC }}</td>
+            </tr>
+            <tr>
+                <th>DatecreateLC</th>
+                <td>{{ ligne_commande.datecreateLC ? ligne_commande.datecreateLC|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UserdeleteLC</th>
+                <td>{{ ligne_commande.userdeleteLC }}</td>
+            </tr>
+            <tr>
+                <th>DatedeleteLC</th>
+                <td>{{ ligne_commande.datedeleteLC ? ligne_commande.datedeleteLC|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UserupdateLC</th>
+                <td>{{ ligne_commande.userupdateLC }}</td>
+            </tr>
+            <tr>
+                <th>DateuserLC</th>
+                <td>{{ ligne_commande.dateuserLC ? ligne_commande.dateuserLC|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>CodeLC</th>
+                <td>{{ ligne_commande.codeLC }}</td>
+            </tr>
+            <tr>
+                <th>Quantite</th>
+                <td>{{ ligne_commande.quantite ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_ligne_commande_index') }}">back to list</a>
+
+    <a href="{{ path('app_ligne_commande_edit', {'id': ligne_commande.id}) }}">edit</a>
+
+    {{ include('ligne_commande/_delete_form.html.twig') }}
+{% endblock %}

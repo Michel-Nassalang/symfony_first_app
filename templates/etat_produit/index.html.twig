@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EtatProduit{% endblock %}
+
+{% block body %}
+    <h1>Liste des etats possibles des produits</h1>
+
+    <table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Code</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for etat_produit in etat_produits %}
+            <tr>
+                <td>{{ etat_produit.code }}</td>
+                <td>{{ etat_produit.nom }}</td>
+                <td>
+                    <a href="{{ path('app_etat_produit_show', {'id': etat_produit.id}) }}">show</a>
+                    <a href="{{ path('app_etat_produit_edit', {'id': etat_produit.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_etat_produit_new') }}">Create new</a>
+{% endblock %}

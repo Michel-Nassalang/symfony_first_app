@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New EtatCaisse{% endblock %}
+
+{% block body %}
+    <h1>Create new EtatCaisse</h1>
+
+    {{ include('etat_caisse/_form.html.twig') }}
+
+    <a href="{{ path('app_etat_caisse_index') }}">back to list</a>
+{% endblock %}

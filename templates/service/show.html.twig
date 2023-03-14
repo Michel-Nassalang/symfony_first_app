@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Service{% endblock %}
+
+{% block body %}
+    <h1>Service</h1>
+
+    <table id="example" class="display" style="width:100%">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ service.id }}</td>
+            </tr>
+            <tr>
+                <th>UserCreate</th>
+                <td>{{ service.userCreate }}</td>
+            </tr>
+            <tr>
+                <th>UserUpdate</th>
+                <td>{{ service.userUpdate }}</td>
+            </tr>
+            <tr>
+                <th>UserDelete</th>
+                <td>{{ service.userDelete }}</td>
+            </tr>
+            <tr>
+                <th>DateCreate</th>
+                <td>{{ service.dateCreate ? service.dateCreate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateUpdate</th>
+                <td>{{ service.dateUpdate ? service.dateUpdate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateDelete</th>
+                <td>{{ service.dateDelete ? service.dateDelete|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{{ service.statut ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>DateOuverture</th>
+                <td>{{ service.dateOuverture ? service.dateOuverture|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateFermeture</th>
+                <td>{{ service.dateFermeture ? service.dateFermeture|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>MontantInitial</th>
+                <td>{{ service.montantInitial }}</td>
+            </tr>
+            <tr>
+                <th>MontantFinal</th>
+                <td>{{ service.montantFinal }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_service_index') }}">back to list</a>
+
+    <a href="{{ path('app_service_edit', {'id': service.id}) }}">edit</a>
+
+    {{ include('service/_delete_form.html.twig') }}
+{% endblock %}

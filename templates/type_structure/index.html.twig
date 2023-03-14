@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeStructure index{% endblock %}
+
+{% block body %}
+    <h1>TypeStructure index</h1>
+
+    <table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libelle</th>
+                <th>Code</th>
+                <th>Statut</th>
+                <th>Usercreate</th>
+                <th>Datecreate</th>
+                <th>Userdelete</th>
+                <th>Datedelete</th>
+                <th>Userupdate</th>
+                <th>Dateupdate</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for type_structure in type_structures %}
+            <tr>
+                <td>{{ type_structure.id }}</td>
+                <td>{{ type_structure.libelle }}</td>
+                <td>{{ type_structure.code }}</td>
+                <td>{{ type_structure.statut ? 'Yes' : 'No' }}</td>
+                <td>{{ type_structure.usercreate }}</td>
+                <td>{{ type_structure.datecreate ? type_structure.datecreate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ type_structure.userdelete }}</td>
+                <td>{{ type_structure.datedelete ? type_structure.datedelete|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ type_structure.userupdate }}</td>
+                <td>{{ type_structure.dateupdate ? type_structure.dateupdate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_type_structure_show', {'id': type_structure.id}) }}">show</a>
+                    <a href="{{ path('app_type_structure_edit', {'id': type_structure.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_type_structure_new') }}">Create new</a>
+{% endblock %}

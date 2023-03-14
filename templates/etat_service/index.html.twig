@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EtatService index{% endblock %}
+
+{% block body %}
+    <h1>EtatService index</h1>
+
+    <table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>StatutES</th>
+                 <th>CodeES</th>
+                <th>AttenteES</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for etat_service in etat_services %}
+            <tr>
+                <td>{{ etat_service.id }}</td>
+                <td>{{ etat_service.statutES ? 'Yes' : 'No' }}</td>
+                <td>{{ etat_service.UserCreateES }}</td>
+                <td>{{ etat_service.datecreateES ? etat_service.datecreateES|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ etat_service.userdeleteES }}</td>
+                <td>{{ etat_service.datedeleteES ? etat_service.datedeleteES|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ etat_service.userupdateES }}</td>
+                <td>{{ etat_service.dateupdateES ? etat_service.dateupdateES|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ etat_service.codeES }}</td>
+                 <td>{{ etat_service.attenteES }}</td>
+                <td>
+                    <a href="{{ path('app_etat_service_show', {'id': etat_service.id}) }}">show</a>
+                    <a href="{{ path('app_etat_service_edit', {'id': etat_service.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_etat_service_new') }}">Create new</a>
+{% endblock %}

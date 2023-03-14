@@ -1,0 +1,4 @@
+<route id="api_post_show" path="/api/posts"
+        controller="App\Controller\HelloWorldController::show">
+</route>
+

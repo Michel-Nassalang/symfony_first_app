@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EtatService{% endblock %}
+
+{% block body %}
+    <h1>EtatService</h1>
+
+    <table id="example" class="display" style="width:100%">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ etat_service.id }}</td>
+            </tr>
+            <tr>
+                <th>StatutES</th>
+                <td>{{ etat_service.statutES ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>UserCreateES</th>
+                <td>{{ etat_service.UserCreateES }}</td>
+            </tr>
+            <tr>
+                <th>DatecreateES</th>
+                <td>{{ etat_service.datecreateES ? etat_service.datecreateES|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UserdeleteES</th>
+                <td>{{ etat_service.userdeleteES }}</td>
+            </tr>
+            <tr>
+                <th>DatedeleteES</th>
+                <td>{{ etat_service.datedeleteES ? etat_service.datedeleteES|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UserupdateES</th>
+                <td>{{ etat_service.userupdateES }}</td>
+            </tr>
+            <tr>
+                <th>DateupdateES</th>
+                <td>{{ etat_service.dateupdateES ? etat_service.dateupdateES|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>CodeES</th>
+                <td>{{ etat_service.codeES }}</td>
+            </tr>
+           
+            <tr>
+                <th>AttenteES</th>
+                <td>{{ etat_service.attenteES }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_etat_service_index') }}">back to list</a>
+
+    <a href="{{ path('app_etat_service_edit', {'id': etat_service.id}) }}">edit</a>
+
+    {{ include('etat_service/_delete_form.html.twig') }}
+{% endblock %}

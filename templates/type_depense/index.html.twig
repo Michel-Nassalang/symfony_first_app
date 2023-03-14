@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeDepense index{% endblock %}
+
+{% block body %}
+    <h1>TypeDepense index</h1>
+
+    <table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Statut</th>
+                <th>UserCreate</th>
+                <th>UserUpdate</th>
+                <th>UserDelete</th>
+                <th>DateCreate</th>
+                <th>DateUpdate</th>
+                <th>DateDelete</th>
+                <th>Code</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for type_depense in type_depenses %}
+            <tr>
+                <td>{{ type_depense.id }}</td>
+                <td>{{ type_depense.nom }}</td>
+                <td>{{ type_depense.statut ? 'Yes' : 'No' }}</td>
+                <td>{{ type_depense.userCreate }}</td>
+                <td>{{ type_depense.userUpdate }}</td>
+                <td>{{ type_depense.userDelete }}</td>
+                <td>{{ type_depense.dateCreate ? type_depense.dateCreate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ type_depense.dateUpdate ? type_depense.dateUpdate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ type_depense.dateDelete ? type_depense.dateDelete|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ type_depense.code }}</td>
+                <td>
+                    <a href="{{ path('app_type_depense_show', {'id': type_depense.id}) }}">show</a>
+                    <a href="{{ path('app_type_depense_edit', {'id': type_depense.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_type_depense_new') }}">Create new</a>
+{% endblock %}

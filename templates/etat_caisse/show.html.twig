@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EtatCaisse{% endblock %}
+
+{% block body %}
+    <h1>EtatCaisse</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ etat_caisse.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ etat_caisse.code }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_etat_caisse_index') }}">back to list</a>
+
+    <a href="{{ path('app_etat_caisse_edit', {'id': etat_caisse.id}) }}">edit</a>
+
+    {{ include('etat_caisse/_delete_form.html.twig') }}
+{% endblock %}

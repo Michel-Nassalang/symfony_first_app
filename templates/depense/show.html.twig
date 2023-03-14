@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Depense{% endblock %}
+
+{% block body %}
+    <h1>Depense</h1>
+
+    <table id="example" class="display" style="width:100%">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ depense.id }}</td>
+            </tr>
+            <tr>
+                <th>Libelle</th>
+                <td>{{ depense.libelle }}</td>
+            </tr>
+            <tr>
+                <th>MontantDepense</th>
+                <td>{{ depense.montantDepense }}</td>
+            </tr>
+            <tr>
+                <th>DateDepense</th>
+                <td>{{ depense.dateDepense ? depense.dateDepense|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{{ depense.statut ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>UserCreate</th>
+                <td>{{ depense.userCreate }}</td>
+            </tr>
+            <tr>
+                <th>UserUpdate</th>
+                <td>{{ depense.userUpdate }}</td>
+            </tr>
+            <tr>
+                <th>UserDelete</th>
+                <td>{{ depense.userDelete }}</td>
+            </tr>
+            <tr>
+                <th>DateCreate</th>
+                <td>{{ depense.dateCreate ? depense.dateCreate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateUpdate</th>
+                <td>{{ depense.dateUpdate ? depense.dateUpdate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateDelete</th>
+                <td>{{ depense.dateDelete ? depense.dateDelete|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_depense_index') }}">back to list</a>
+
+    <a href="{{ path('app_depense_edit', {'id': depense.id}) }}">edit</a>
+
+    {{ include('depense/_delete_form.html.twig') }}
+{% endblock %}

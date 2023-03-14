@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Etatcommande index{% endblock %}
+
+{% block body %}
+    <h1>Etatcommande index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Status</th>
+                <th>Datecreation</th>
+                <th>Userdelete</th>
+                <th>Datedelete</th>
+                <th>Userupdate</th>
+                <th>Dateupdate</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for etatcommande in etatcommandes %}
+            <tr>
+                <td>{{ etatcommande.id }}</td>
+                <td>{{ etatcommande.code }}</td>
+                <td>{{ etatcommande.status ? 'Yes' : 'No' }}</td>
+                <td>{{ etatcommande.datecreation ? etatcommande.datecreation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ etatcommande.userdelete }}</td>
+                <td>{{ etatcommande.datedelete ? etatcommande.datedelete|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ etatcommande.userupdate }}</td>
+                <td>{{ etatcommande.dateupdate ? etatcommande.dateupdate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_etatcommande_show', {'id': etatcommande.id}) }}">show</a>
+                    <a href="{{ path('app_etatcommande_edit', {'id': etatcommande.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_etatcommande_new') }}">Create new</a>
+{% endblock %}

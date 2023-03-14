@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeOperation index{% endblock %}
+
+{% block body %}
+    <h1>TypeOperation index</h1>
+
+    <table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NomOp</th>
+                <th>Usercreate</th>
+                <th>Userdelete</th>
+                <th>Userupdate</th>
+                <th>Dateupdate</th>
+                <th>Datecreate</th>
+                <th>Datedelete</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for type_operation in type_operations %}
+            <tr>
+                <td>{{ type_operation.id }}</td>
+                <td>{{ type_operation.nomOp }}</td>
+                <td>{{ type_operation.Usercreate }}</td>
+                <td>{{ type_operation.Userdelete }}</td>
+                <td>{{ type_operation.userupdate }}</td>
+                <td>{{ type_operation.Dateupdate ? type_operation.Dateupdate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ type_operation.Datecreate ? type_operation.Datecreate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ type_operation.Datedelete ? type_operation.Datedelete|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_type_operation_show', {'id': type_operation.id}) }}">show</a>
+                    <a href="{{ path('app_type_operation_edit', {'id': type_operation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_type_operation_new') }}">Create new</a>
+{% endblock %}

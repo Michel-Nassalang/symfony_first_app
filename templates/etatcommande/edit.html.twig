@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Etatcommande{% endblock %}
+
+{% block body %}
+    <h1>Edit Etatcommande</h1>
+
+    {{ include('etatcommande/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_etatcommande_index') }}">back to list</a>
+
+    {{ include('etatcommande/_delete_form.html.twig') }}
+{% endblock %}

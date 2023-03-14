@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rapport index{% endblock %}
+
+{% block body %}
+    <h1>Rapport index</h1>
+
+    <table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Statut</th>
+                <th>Usercreate</th>
+                <th>Datecreate</th>
+                <th>Userdelete</th>
+                <th>Datedelete</th>
+                <th>Userupdate</th>
+                <th>Dateupdate</th>
+                <th>Rapport</th>
+                <th>Mntvente</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for rapport in rapports %}
+            <tr>
+                <td>{{ rapport.id }}</td>
+                <td>{{ rapport.statut ? 'Yes' : 'No' }}</td>
+                <td>{{ rapport.usercreate }}</td>
+                <td>{{ rapport.datecreate ? rapport.datecreate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ rapport.userdelete }}</td>
+                <td>{{ rapport.datedelete ? rapport.datedelete|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ rapport.userupdate }}</td>
+                <td>{{ rapport.dateupdate ? rapport.dateupdate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ rapport.rapport }}</td>
+                <td>{{ rapport.mntvente }}</td>
+                <td>
+                    <a href="{{ path('app_rapport_show', {'id': rapport.id}) }}">show</a>
+                    <a href="{{ path('app_rapport_edit', {'id': rapport.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_rapport_new') }}">Create new</a>
+{% endblock %}

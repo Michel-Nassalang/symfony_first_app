@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeDepense{% endblock %}
+
+{% block body %}
+    <h1>TypeDepense</h1>
+
+    <table id="example" class="display" style="width:100%">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ type_depense.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ type_depense.nom }}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{{ type_depense.statut ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>UserCreate</th>
+                <td>{{ type_depense.userCreate }}</td>
+            </tr>
+            <tr>
+                <th>UserUpdate</th>
+                <td>{{ type_depense.userUpdate }}</td>
+            </tr>
+            <tr>
+                <th>UserDelete</th>
+                <td>{{ type_depense.userDelete }}</td>
+            </tr>
+            <tr>
+                <th>DateCreate</th>
+                <td>{{ type_depense.dateCreate ? type_depense.dateCreate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateUpdate</th>
+                <td>{{ type_depense.dateUpdate ? type_depense.dateUpdate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateDelete</th>
+                <td>{{ type_depense.dateDelete ? type_depense.dateDelete|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ type_depense.code }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_type_depense_index') }}">back to list</a>
+
+    <a href="{{ path('app_type_depense_edit', {'id': type_depense.id}) }}">edit</a>
+
+    {{ include('type_depense/_delete_form.html.twig') }}
+{% endblock %}

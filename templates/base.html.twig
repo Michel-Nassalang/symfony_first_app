@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}MbineShop
+			{% endblock %}
+		</title>
+		{% block cssp %}
+			<link href="{{ asset('assets/bootstrap.min.css') }}" rel="stylesheet"/>
+			<link href="{{ asset('assets/bootstrap.css') }}" rel="stylesheet"/>
+      <link href="{{ asset('assets/datatables/buttons.dataTables.min.css') }}" rel="stylesheet"/>
+			<link href="{{ asset('assets/datatables/jquery.dataTables.min.css') }}" rel="stylesheet"/>
+			<link href="{{ asset('assets/_variables.scss') }}" rel="stylesheet"/>
+			<link href="{{ asset('assets/_bootswatch.scss') }}" rel="stylesheet"/>
+
+
+		{% endblock %}
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('app') }}
+		{% endblock %}
+
+		{% block javascripts %}
+			{{ encore_entry_script_tags('app') }}
+		{% endblock %}
+	</head>
+	{% block nav %}
+		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">MbineShop</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarColor01">
+					<ul class="navbar-nav me-auto">
+						<li class="nav-item">
+    
+
+          <a class="nav-link active" href="{{ path('app_structure_index') }}">Home
+            <span class="visually-hidden">(current)</span>
+          </a>
+          <li class="nav-item">
+          <a class="nav-link" href="{{path('app_produit_index')}}">Produits</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{path('app_categorie_index')}}">Categories</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{path('app_etat_produit_index')}}">Etat produits</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{path('app_service_index')}}">Service</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{path('app_service_index')}}">Type de dépense</a>
+        </li>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{path('app_register')}}">Utilisateur</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="{{path('app_etat_service_index')}}">EtatService</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{path('app_ligne_commande_index')}}">LigneCommande</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{path('app_commande_index')}}">Command</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{path('app_etatcommande_index')}}">Etatcommande</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="{{path('app_type_structure_index')}}">type structure</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-sm-2" type="search" placeholder="Search">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+{% endblock %}
+   
+	<body>
+		{% block body %}
+    <table id="example">
+    </table>
+{% endblock %}
+{% block javas %}
+
+     <script type="text/javascript" src="{{ asset('assets/datatables/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/datatables/jquery-3.5.1.js') }}"></script>
+			<script type="text/javascript" src="{{ asset('assets/datatables/buttons.print.min.js') }}"></script>
+      <script type="text/javascript" src="{{ asset('assets/datatables/dataTables.buttons.min.js') }}"></script>
+      <script type="text/javascript" src="{{ asset('assets/datatables/jquery.dataTables.min.js') }}"></script>
+      
+
+
+<script type="text/javascript" >
+$(document).ready(function() {
+    $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'print'
+        ]
+    } );
+} );
+
+</script>
+
+
+    {% endblock %}
+	</body>
+
+</html>

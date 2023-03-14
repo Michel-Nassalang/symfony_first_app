@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeStructure{% endblock %}
+
+{% block body %}
+    <h1>TypeStructure</h1>
+
+    <table id="example" class="display" style="width:100%">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ type_structure.id }}</td>
+            </tr>
+            <tr>
+                <th>Libelle</th>
+                <td>{{ type_structure.libelle }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ type_structure.code }}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{{ type_structure.statut ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Usercreate</th>
+                <td>{{ type_structure.usercreate }}</td>
+            </tr>
+            <tr>
+                <th>Datecreate</th>
+                <td>{{ type_structure.datecreate ? type_structure.datecreate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Userdelete</th>
+                <td>{{ type_structure.userdelete }}</td>
+            </tr>
+            <tr>
+                <th>Datedelete</th>
+                <td>{{ type_structure.datedelete ? type_structure.datedelete|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Userupdate</th>
+                <td>{{ type_structure.userupdate }}</td>
+            </tr>
+            <tr>
+                <th>Dateupdate</th>
+                <td>{{ type_structure.dateupdate ? type_structure.dateupdate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_type_structure_index') }}">back to list</a>
+
+    <a href="{{ path('app_type_structure_edit', {'id': type_structure.id}) }}">edit</a>
+
+    {{ include('type_structure/_delete_form.html.twig') }}
+{% endblock %}
